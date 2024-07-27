@@ -15,7 +15,7 @@ const theMidWare = function (req, res, next){
     next();
 };
 app.use(theMidWare); //Tested it with the about route and yup, it works! Potion well mixed and tasted I mean test right!
-
+app.use(express.static('./forstatic')); //Serving static files and it works good. Can be accessed at port. localhost:3000/renderstat.html
 
 //creating routes with parameters using ':'
 
