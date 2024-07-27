@@ -4,6 +4,15 @@ const express = require("express");
 const app = express();
 const port = 3000;
 
+
+//creating middlewarer 'app.use with 3 argument which are req, res, next
+const theMidWare = function (req, res, next){
+    console.log('This middleware works');
+    next();
+};
+app.use(theMidWare); //Tested it with the about route and yup, it works! Potion well mixed and tasted I mean test right!
+
+
 //creating routes with parameters using ':'
 
 app.get('/', (req, res) => {
