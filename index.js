@@ -3,6 +3,7 @@
 const express = require("express");
 const app = express();
 const port = 3000;
+const download = require("download");
 
 //adding and rendering template views , in this case, pug
 app.set("view engine", "pug");
@@ -28,6 +29,13 @@ app.get('/About', (req, res) => {
 app.get('/About/:studentID/summary', (req, res) => {
   res.send(`Go to my about page to figure out where I learnt to code; ${req.params.studentID} `);
 })
+
+(async function(){
+    download("https://images.pexels.com/photos/7974/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=600", "downloadfolder").then(() =>{
+        console.log('complete');
+    })
+})();
+
 
 app.listen(port, () => {
     console.log(`server listening on port: ${port}.`);
